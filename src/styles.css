@@ -67,3 +67,14 @@ div{
 .table_of_subscriptions table tbody tr:hover{
   background-color: #f5f5f5;
 }
+.table_of_subscriptions table button{
+  background-color: #f5f5f5;
+  color: green;
+  border: none;
+  font-size: 18px;
+}
+.table_of_subscriptions table button:hover{
+  border: 1px solid rgb(198,198,198);
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  box-shadow: 0 1px 2px white;
+}
