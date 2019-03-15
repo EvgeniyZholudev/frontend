@@ -16,28 +16,7 @@
       <button type="button" class="btn_to_registration">Регистрация</button>
     </div>
   </div>
-  <div class="table_of_subscriptions">
-    <table class="table">
-      <thead class="thead-green">
-      <tr>
-        <th scope="col">ПОДПИСКА</th>
-        <th scope="col">ОПИСАНИЕ</th>
-        <th scope="col">ЦЕНА</th>
-        <th scope="col">ВРЕМЯ</th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let subscript of subscripts">
-        <td scope="row">{{subscript.name}}</td>
-        <td>{{subscript.discription}}</td>
-        <td>{{subscript.price}}</td>
-        <td>{{subscript.time}}</td>
-        <td><button type="button" class="btn_to_subscript" (click)="_removeSubscript(subscript.id)">Подписаться</button></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+ <app-subscript-table></app-subscript-table>
 </div>
 
 
