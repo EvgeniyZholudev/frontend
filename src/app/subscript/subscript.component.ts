@@ -3,10 +3,9 @@ import {Subscript} from '../model/subscript';
 
 @Component({
   selector: 'app-subscript-table',
-  templateUrl: './subscript.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './subscript.component.html'
 })
-export class SubscriptComponent implements OnInit{
+export class SubscriptComponent implements OnInit {
   subscripts: Subscript[] =
     [
       {id: 1, name: 'Rweghjng', discription: 'tyuiokjmnbsef', price: 20, time: 7},
