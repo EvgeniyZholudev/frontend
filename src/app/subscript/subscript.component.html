@@ -1,4 +1,4 @@
-<ng4-loading-spinner> </ng4-loading-spinner>
+
 <div class="table_of_subscriptions">
   <table class="table">
     <thead class="thead-green">
@@ -13,10 +13,10 @@
     <tbody>
     <tr *ngFor="let subscript of subscripts">
       <td scope="row">{{subscript.name}}</td>
-      <td>{{subscript.discription}}</td>
+      <td>{{subscript.description}}</td>
       <td>{{subscript.price}}</td>
       <td>{{subscript.time}}</td>
-      <td><button type="button" class="btn_to_subscript" (click)="_removeSubscript(subscript.id)">Подписаться</button></td>
+      <td><button type="button" class="btn_to_subscript">Подписаться</button></td>
     </tr>
     </tbody>
   </table>

@@ -1,0 +1,25 @@
+<div class="table_of_users">
+  <table class="table">
+    <thead>
+    <tr>
+
+      <th scope="col">ЛОГИН</th>
+      <th scope="col">ПОЧТА</th>
+      <th scope="col">БАЛАНС</th>
+      <th scope="col">СТАТУС</th>
+      <th scope="col">ПОДПИСКИ</th>
+      <th scope="col">ДЕЙСТВИЕ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td scope="row">{{user.login}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.balance}}</td>
+      <td>{{user.status ? "Activate" : "Blocked"}}</td>
+      <td><button type="button" class="btn_to_show_subscripts">Подписки</button></td>
+      <td><button type="button" class="btn_to_change_status" >{{user.status ? "Блокировать" : "Активировать"}}</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

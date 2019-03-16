@@ -1,12 +1,15 @@
-import {Subscript} from '../../model/subscript';
+import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Injectable} from '@angular/core';
+import {Subscript} from '../../model/subscript';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SubscriptService {
+
   constructor(private http: HttpClient) {}
-  getSubscripts(): Observable<Subscript[]> {
-    return this.http.get<Subscript[]>('try.json');
-}
+  public getSubscripts(): Observable<Subscript[]> {
+    return this.http.get<Subscript[]>('../../../assets/subscripts.json');
+  }
 }
