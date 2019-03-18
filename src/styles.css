@@ -1,8 +1,13 @@
 
 /* You can add global styles to this file, and also import other style files */
-
+@import '~bootstrap/dist/css/bootstrap.min.css';
 div{
   display: block;
   position: relative;
 }
-
+style{
+  display: none;
+}
+body{
+  overflow-x: hidden;
+}

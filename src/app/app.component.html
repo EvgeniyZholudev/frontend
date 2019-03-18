@@ -1,22 +1,51 @@
 <div class="main">
   <div class="head">
     <div class="login">
-      <div class="login_input">
         <input type="text" name="login" onblur="if(this.value==''){this.value='Логин';}" onfocus="if(this.value=='Логин') {this.value='';}" value = "Логин">
-      </div>
     </div>
     <div class="password">
-      <div class="password_input">
         <input type="password" name="password" onblur="if(this.value==''){this.value='Пароль';}" onfocus="if(this.value=='Пароль') {this.value='';}" value = "Пароль">
       </div>
-    </div>
-    <div class="intrance_btns">
-      <button type="button" class="btn_to_intrance">Войти</button>
-      <button type="button" class="btn_to_registration">Регистрация</button>
+    <div class="entrance_btns">
+      <button type="button" class="btn_to_entrance">Войти</button>
+      <button type="button" class="btn_to_registration" (click)="_openModal(reg_template)">Регистрация</button>
     </div>
   </div>
  <app-subscript></app-subscript>
   <app-user></app-user>
 </div>
+
+<ng-template #reg_template>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Регистрация</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="_closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>Логин</label>
+      <input class="form-control" name="login" [(ngModel)]="addableUser.login" #login="ngModel" required>
+      <div [hidden]="login.valid || login.untouched" class="alert alert-danger">Пожалуйста, введите логин</div>
+    </div>
+    <div class="form-group">
+      <label>Пароль</label>
+      <input type="password" name="password" class="form-control" [(ngModel)]="addableUser.password" #password="ngModel" required>
+      <div [hidden]="password.valid || password.untouched" class="alert alert-danger">Пожалуйста, введите пароль</div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" class="form-control" [(ngModel)]="addableUser.email" #email="ngModel" required>
+      <div [hidden]="email.valid || email.untouched" class="alert alert-danger">Ваш email не правильный</div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default"
+            [disabled]="login.invalid || password.invalid || email.invalid">Зарегистрироваться
+    </button>
+
+  </div>
+
+</ng-template>
 
 

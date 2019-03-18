@@ -23,5 +23,31 @@
     ],
 
     "status": true
+  },
+
+  {
+    "id": 1,
+    "login": "qwer",
+    "password": "gvhbjnm",
+    "email": "efdhgh@mail.com",
+    "balance": 2000,
+    "subscripts": [
+      {
+        "id":1,
+        "name":"Подписка",
+        "description":"Описание",
+        "price":20,
+        "time":7
+      },
+      {
+        "id":2,
+        "name":"Подписка 2",
+        "description":"Описание чего-то там",
+        "price":80,
+        "time":10
+      }
+    ],
+
+    "status": false
   }
 ]

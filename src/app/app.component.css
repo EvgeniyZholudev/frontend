@@ -7,26 +7,25 @@
 }
 .head input{
   width: 100%;
-  height: 20px;
+  float:right;
+  height: 30px;
   font-family: monospace;
   border-radius: 5px;
 }
 .head input:hover{
   background-color: #fdf5e6;
 }
-.btn_to_intrance{
-  width: 39%;
+.btn_to_entrance{
+  float: left;
 }
 .btn_to_registration{
-  width: 59%;
+  float: right;
 }
 .head button{
   display: inline-block;
   color: white;
-  font-weight: 700;
   text-decoration: none;
   user-select: none;
-  padding: .5em 2em;
   outline: none;
   border: 2px solid;
   border-radius: 1px;
@@ -36,3 +35,10 @@
 .head button:hover{
   background-color: #808080;
 }
+.modal_title{
+  margin-top: 0;
+}
+.btn{
+  background-color: #c9c9c9;
+}
+

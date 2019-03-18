@@ -18,7 +18,8 @@
       <td>{{user.balance}}</td>
       <td>{{user.status ? "Activate" : "Blocked"}}</td>
       <td><button type="button" class="btn_to_show_subscripts">Подписки</button></td>
-      <td><button type="button" class="btn_to_change_status" >{{user.status ? "Блокировать" : "Активировать"}}</button></td>
+      <td><button *ngIf="!user.status" type="button" class="btn_to_activate">Активировать</button>
+        <button *ngIf="user.status" type="button" class="btn_to_block" >Блокировать</button></td>
     </tr>
     </tbody>
   </table>
