@@ -17,10 +17,42 @@
       <td>{{user.email}}</td>
       <td>{{user.balance}}</td>
       <td>{{user.status ? "Activate" : "Blocked"}}</td>
-      <td><button type="button" class="btn_to_show_subscripts">Подписки</button></td>
+      <td><button type="button" class="btn_to_show_subscripts" (click)="_openSubs(subs_template, user)">Подписки</button></td>
       <td><button *ngIf="!user.status" type="button" class="btn_to_activate">Активировать</button>
-        <button *ngIf="user.status" type="button" class="btn_to_block" >Блокировать</button></td>
+        <button *ngIf="user.status" type="button" class="btn_to_block">Блокировать</button></td>
     </tr>
     </tbody>
   </table>
 </div>
+
+<ng-template #subs_template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Подписки пользователя {{lookedUser.login}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="_closeSubs()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="table_of_subscriptions">
+      <table class="table">
+        <thead class="thead-green">
+        <tr>
+          <th scope="col">ПОДПИСКА</th>
+          <th scope="col">ОПИСАНИЕ</th>
+          <th scope="col">ЦЕНА</th>
+          <th scope="col">ВРЕМЯ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let subscript of lookedUser.subscripts">
+          <td scope="row">{{subscript.name}}</td>
+          <td>{{subscript.description}}</td>
+          <td>{{subscript.price}} RUB</td>
+          <td>{{subscript.time}} д.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</ng-template>

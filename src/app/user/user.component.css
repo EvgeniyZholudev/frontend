@@ -13,13 +13,11 @@
   background-color: #000000;
 }
 .table_of_users table th{
-  height: 50px;
   color: white;
   font-size: 20px;
   font-family: cursive;
 }
 .table_of_users table tbody tr{
-  height: 60px;
   font-family: monospace;
 }
 .table_of_users table tbody tr:hover{
@@ -41,7 +39,44 @@ button:hover{
   background: #f7f7f7 linear-gradient(#97fff7, #76cbc4);
   box-shadow: 0 1px 2px white;
 }
-.btn_to_block:hover{
+.btn_to_block:hover, .btn_to_unsubscribe:hover{
   background: #f7f7f7 linear-gradient(#ff000d, #b8000a);
   box-shadow: 0 1px 2px white;
 }
+
+.table_of_subscriptions{
+  display: inline-block;
+  width: 100%;
+  top:30px;
+  left:3%;
+}
+.table_of_subscriptions table{
+  width: 90%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.table_of_subscriptions table thead{
+  background-color: #cccccc;
+}
+.table_of_subscriptions table th{
+  color: white;
+  font-family: cursive;
+}
+.table_of_subscriptions table tbody tr{
+  font-family: monospace;
+}
+.table_of_subscriptions table tbody tr:hover{
+  background-color: #f5f5f5;
+}
+.close {
+  width: auto;
+}
+button.close{
+  background-color: transparent;
+}
+
+
+
+
+
+

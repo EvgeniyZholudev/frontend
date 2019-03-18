@@ -8,6 +8,7 @@ import {User} from './model/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  authorizedUser: User = new User();
   public modalRef: BsModalRef;
   public addableUser: User = new User();
   constructor(private modalService: BsModalService) {}
@@ -18,5 +19,12 @@ export class AppComponent implements OnInit {
     this.modalRef.hide();
   }
   ngOnInit() {
+  }
+  public authorization(login: string, password: string): void {
+    // send data to server
+    this.authorizedUser.login = login;
+    this.authorizedUser.password = password;
+    this.authorizedUser.role = 'admin';
+    this.authorizedUser.balance = 100;
   }
 }

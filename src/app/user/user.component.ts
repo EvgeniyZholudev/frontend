@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {UserService} from '../service/userService/user.service';
 import {User} from '../model/user';
-import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-user',
@@ -9,17 +9,25 @@ import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
+  modalRef: BsModalRef;
+  lookedUser: User = new User();
   users: User[];
-  constructor(private userService: UserService, private loadingService: Ng4LoadingSpinnerService) {}
+  constructor(private userService: UserService, private modalService: BsModalService) {}
 
   ngOnInit() {
     this.loadUsers();
   }
   private loadUsers(): void {
-    this.loadingService.show();
     this.userService.getUsers().subscribe(data => this.users = data);
-    this.loadingService.hide();
+  }
+
+  public _openSubs(template: TemplateRef<any>, user: User): void {
+    this.lookedUser = User.cloneUser(user);
+    this.modalRef = this.modalService.show(template);
+  }
+  public _closeSubs(): void {
+    this.lookedUser = new User();
+    this.modalRef.hide();
   }
 
 }
