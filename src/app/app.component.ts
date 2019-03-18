@@ -27,4 +27,7 @@ export class AppComponent implements OnInit {
     this.authorizedUser.role = 'admin';
     this.authorizedUser.balance = 100;
   }
+  public exit(): void {
+    this.authorizedUser = new User();
+  }
 }

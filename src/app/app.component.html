@@ -1,13 +1,5 @@
 <div class="main">
   <div class="head">
-    <div class="menu">
-      <nav role='navigation'>
-      <ul>
-        <li>Подписки</li>
-        <li>Профиль</li>
-        <li>Выйти</li>
-      </ul>
-    </nav>  </div>
     <div class="authorization" *ngIf="authorizedUser.login == null; else user_info">
     <div class="login">
         <input type="text" name="authLogin" [(ngModel)]="authLogin" required onblur="if(this.value==''){this.value='Логин';}" onfocus="if(this.value=='Логин') {this.value='';}" value = "Логин">
@@ -21,6 +13,17 @@
     </div>
     </div>
     <ng-template #user_info>
+      <div class="menu">
+        <nav role='navigation'>
+          <ul>
+            <li>Подписки</li>
+            <li *ngIf="authorizedUser.role == 'admin'">Пользователи</li>
+            <li>Профиль</li>
+            <li>Настройки</li>
+            <li (click)="exit()">Выйти</li>
+          </ul>
+        </nav>
+      </div>
     <div class="user_info">
       <p>{{authorizedUser.login}}</p>
       <p>Баланс: {{authorizedUser.balance}}</p>
