@@ -20,10 +20,9 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
   }
-  public authorization(login: string, password: string): void {
+  public authorization(): void {
     // send data to server
-    this.authorizedUser.login = login;
-    this.authorizedUser.password = password;
+    this.authorizedUser.id = 1;
     this.authorizedUser.role = 'admin';
     this.authorizedUser.balance = 100;
   }

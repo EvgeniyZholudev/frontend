@@ -4,10 +4,12 @@
 
 .authorization{
   float: right;
+  width: 180px;
 }
 .menu{
   float: left;
 }
+
 .head input{
   width: 100%;
   float:right;
@@ -21,21 +23,23 @@
 .btn_to_entrance{
   float: left;
 }
+.btn_to_entrance:disabled{
+  opacity: .65;
+}
+
 .btn_to_registration{
   float: right;
 }
 .head button{
   display: inline-block;
-  color: white;
   text-decoration: none;
   user-select: none;
   outline: none;
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 1px;
   transition: 0.2s;
-  background-color: #a9a9a9;
 }
-.head button:hover{
+.head button:hover:enabled{
   background-color: #808080;
 }
 .modal_title{
@@ -109,4 +113,15 @@ nav ul ul ul {
   position: absolute;
   left: 100%;
   top:0;
+}
+
+.alert {
+  position: unset;
+  padding: .75rem 1.25rem;
+  margin-bottom: unset;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+.input{
+  position: unset;
 }

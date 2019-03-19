@@ -1,14 +1,19 @@
 <div class="main">
   <div class="head">
-    <div class="authorization" *ngIf="authorizedUser.login == null; else user_info">
-    <div class="login">
-        <input type="text" name="authLogin" [(ngModel)]="authLogin" required onblur="if(this.value==''){this.value='Логин';}" onfocus="if(this.value=='Логин') {this.value='';}" value = "Логин">
+    <div class="authorization" *ngIf="authorizedUser.id == null; else user_info">
+    <div class="input">
+        <input type="text" name="authLogin" [(ngModel)]="authorizedUser.login" #authLogin="ngModel" required
+               onblur="if(this.value==''){this.value='Логин';}" onfocus="if(this.value=='Логин') {this.value='';}" value = "Логин">
+      <div [hidden]="authLogin.valid || authLogin.untouched" class="alert alert-danger">Введите логин</div>
     </div>
-    <div class="password">
-        <input type="password" name="authPassword" [(ngModel)]="authPassword"  required onblur="if(this.value==''){this.value='Пароль';}" onfocus="if(this.value=='Пароль') {this.value='';}" value = "Пароль">
+    <div class="input">
+        <input type="password" name="authPassword" [(ngModel)]="authorizedUser.password" #authPassword="ngModel" required
+               onblur="if(this.value==''){this.value='Пароль';}" onfocus="if(this.value=='Пароль') {this.value='';}" value = "Пароль">
+      <div [hidden]="authPassword.valid || authPassword.untouched" class="alert alert-danger">Введите пароль</div>
       </div>
     <div class="entrance_btns">
-      <button type="button" class="btn_to_entrance" (click)="authorization(authLogin, authPassword)">Войти</button>
+      <button type="button" class="btn_to_entrance" (click)="authorization()"
+              [disabled]="authLogin.invalid || authPassword.invalid">Войти</button>
       <button type="button" class="btn_to_registration" (click)="_openModal(reg_template)">Регистрация</button>
     </div>
     </div>
