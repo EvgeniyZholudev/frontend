@@ -17,7 +17,8 @@ import {RouterModule, Routes} from '@angular/router';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: 'jumbotron', pathMatch: 'full'},
+  {path: 'jumbotron', component: JumbotronComponent},
   {path: 'subscripts', component: SubscriptComponent},
   {path: 'users', component: UserComponent},
 ];
