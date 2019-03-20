@@ -1,6 +1,5 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
-import {User} from './model/user';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -9,18 +8,7 @@ import {User} from './model/user';
 })
 export class AppComponent implements OnInit {
 
-  public modalRef: BsModalRef;
-  public addableUser: User = new User();
-
-  constructor(private modalService: BsModalService) {
-  }
-
-  public _openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
-  }
-
-  public _closeModal(): void {
-    this.modalRef.hide();
+  constructor() {
   }
 
   ngOnInit() {

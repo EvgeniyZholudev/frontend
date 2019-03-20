@@ -1,4 +1,4 @@
-import {Subscript} from './subscript';
+import {BillingAccount} from './billing-account';
 
 export class User {
   id: number;
@@ -6,7 +6,7 @@ export class User {
   password: string;
   email: string;
   role: string;
-  status: boolean;
+  billingAccounts: BillingAccount[];
 
   static cloneUser(user: User): User {
     const clonedUser: User = new User();
@@ -15,7 +15,7 @@ export class User {
     clonedUser.password = user.password;
     clonedUser.email = user.email;
     clonedUser.role = user.role;
-    clonedUser.status = user.status;
+    clonedUser.billingAccounts = user.billingAccounts;
     return clonedUser;
   }
 }

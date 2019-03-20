@@ -15,12 +15,15 @@ import {AuthorizationComponent} from './authorization/authorization.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {RouterModule, Routes} from '@angular/router';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { AuthorizedUserComponent } from './authorized-user/authorized-user.component';
+import {TabsModule} from 'ngx-bootstrap';
 
 const routes: Routes = [
   {path: '', redirectTo: 'jumbotron', pathMatch: 'full'},
   {path: 'jumbotron', component: JumbotronComponent},
   {path: 'subscripts', component: SubscriptComponent},
   {path: 'users', component: UserComponent},
+  {path: 'profile', component: AuthorizedUserComponent},
 ];
 
 @NgModule({
@@ -30,7 +33,8 @@ const routes: Routes = [
     UserComponent,
     AuthorizationComponent,
     NavbarComponent,
-    JumbotronComponent
+    JumbotronComponent,
+    AuthorizedUserComponent
   ],
 
   exports: [RouterModule],
@@ -43,7 +47,8 @@ const routes: Routes = [
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
