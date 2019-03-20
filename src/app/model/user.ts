@@ -6,8 +6,6 @@ export class User {
   password: string;
   email: string;
   role: string;
-  balance: number;
-  subscripts: Subscript[];
   status: boolean;
 
   static cloneUser(user: User): User {
@@ -17,8 +15,6 @@ export class User {
     clonedUser.password = user.password;
     clonedUser.email = user.email;
     clonedUser.role = user.role;
-    clonedUser.balance = user.balance;
-    clonedUser.subscripts = user.subscripts;
     clonedUser.status = user.status;
     return clonedUser;
   }

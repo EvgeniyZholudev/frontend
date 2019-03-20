@@ -3,15 +3,13 @@
       "id":1,
       "name":"Подписка",
       "description":"Описание",
-      "price":20,
-      "time":7
+      "pricePerDay":20
     },
   {
     "id":2,
     "name":"Подписка 2",
     "description":"Описание чего-то там",
-    "price":80,
-    "time":10
+    "pricePerDay":80
   }
   ]
 

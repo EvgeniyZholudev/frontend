@@ -1,12 +1,11 @@
 
-<div class="table_of_subscriptions">
-  <table class="table">
+
+  <table class="table table-hover">
     <thead class="thead-green">
     <tr>
       <th scope="col">ПОДПИСКА</th>
       <th scope="col">ОПИСАНИЕ</th>
       <th scope="col">ЦЕНА</th>
-      <th scope="col">ВРЕМЯ</th>
       <th scope="col"></th>
     </tr>
     </thead>
@@ -14,12 +13,11 @@
     <tr *ngFor="let subscript of subscripts">
       <td scope="row">{{subscript.name}}</td>
       <td>{{subscript.description}}</td>
-      <td>{{subscript.price}} RUB</td>
-      <td>{{subscript.time}} д.</td>
+      <td>{{subscript.pricePerDay}} RUB/д.</td>
       <td><button type="button" class="btn_to_subscript">Подписаться</button></td>
     </tr>
     </tbody>
   </table>
-</div>
+
 
 
