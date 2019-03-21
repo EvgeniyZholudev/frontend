@@ -16,7 +16,8 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {RouterModule, Routes} from '@angular/router';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { AuthorizedUserComponent } from './authorized-user/authorized-user.component';
-import {TabsModule} from 'ngx-bootstrap';
+import {PaginationModule, TabsModule} from 'ngx-bootstrap';
+import { BillingAccountComponent } from './billing-account/billing-account.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'jumbotron', pathMatch: 'full'},
@@ -34,7 +35,8 @@ const routes: Routes = [
     AuthorizationComponent,
     NavbarComponent,
     JumbotronComponent,
-    AuthorizedUserComponent
+    AuthorizedUserComponent,
+    BillingAccountComponent
   ],
 
   exports: [RouterModule],
@@ -48,7 +50,8 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     RouterModule.forRoot(routes),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,85 @@
-<tabset>
-  <tab heading="Basic title" id="tab1">Basic content</tab>
-  <tab heading="Basic Title 1">Basic content 1</tab>
-  <tab heading="Basic Title 2">Basic content 2</tab>
-</tabset>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
 
+        <div class="card-body">
+          <div class="card-title mb-4">
+            <div class="d-flex justify-content-start">
+              <div class="userData ml-3">
+                <h4>Логин: {{authUser.login}}</h4>
+                <h5>Email: {{authUser.email}}</h5>
+              </div>
 
+            </div>
+            <div class="row mt-2">
+              <div class="col-12">
+                <tabset>
+                  <tab heading="Пополнить баланс">
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Выберите billing account для пополнения:</label>
+                      <select class="form-control w-25" id="exampleFormControlSelect1"
+                              [(ngModel)]="selectedBillingAccount">
+                        <option *ngFor="let billingAccount of authUser.billingAccounts"
+                                [ngValue]="billingAccount">{{billingAccount.name}}</option>
+                      </select>
+                    </div>
+                    <h6>Имя аккаунта: {{selectedBillingAccount.name}}</h6>
+                    <h6>Баланс: {{selectedBillingAccount.balance}}</h6>
+                    <h6>Статус: {{selectedBillingAccount.status}}</h6>
+                    <button class="btn btn-link" (click)="_openModal(subsModal)">Подписки</button>
+                    <p></p>
+                    <label for="exampleForm2">Введите сумму:</label>
+                    <input type="number" id="exampleForm2" class="form-control w-25">
+                    <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2">Пополнить</button>
+
+                  </tab>
+                  <tab heading="Сменить логин">
+                    <label for="form1" class="mt-1">Введите новый логин:</label>
+                    <input type="text" id="form1" class="form-control w-25 mt-1">
+                    <button class="btn btn-primary mt-3">Сменить логин</button>
+                  </tab>
+                  <tab heading="Сменить пароль">
+                    <label for="form2" class="mt-1">Введите старый пароль:</label>
+                    <input type="password" id="form2" class="form-control w-25 mt-1">
+                    <label for="form3" class="mt-1">Введите новый пароль:</label>
+                    <input type="password" id="form3" class="form-control w-25 mt-1">
+                    <button class="btn btn-primary mt-3">Сменить пароль</button>
+                  </tab>
+                  <tab heading="Сменить email">
+                    <label for="form4" class="mt-1">Введите новый email:</label>
+                    <input type="text" id="form4" class="form-control w-25 mt-1">
+                    <button class="btn btn-primary mt-3">Сменить email</button>
+                  </tab>
+                </tabset>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #subsModal>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ПОДПИСКА</th>
+      <th scope="col">ОПИСАНИЕ</th>
+      <th scope="col">ЦЕНА</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let subscript of selectedBillingAccount.subscripts">
+      <td scope="row">{{subscript.name}}</td>
+      <td>{{subscript.description}}</td>
+      <td>{{subscript.pricePerDay}} RUB/д.</td>
+    </tr>
+    </tbody>
+  </table>
+<h6>Плата за день: {{countPricePerDay()}}</h6>
+</ng-template>

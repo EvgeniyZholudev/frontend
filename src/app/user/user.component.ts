@@ -9,14 +9,18 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
   modalRef: BsModalRef;
   lookedUser: User = new User();
-  users: User[];
-  constructor(private userService: UserService, private modalService: BsModalService) {}
+  public users: User[];
+
+  constructor(private userService: UserService, private modalService: BsModalService) {
+  }
 
   ngOnInit() {
     this.loadUsers();
   }
+
   private loadUsers(): void {
     this.userService.getUsers().subscribe(data => this.users = data);
   }
@@ -25,6 +29,7 @@ export class UserComponent implements OnInit {
     this.lookedUser = User.cloneUser(user);
     this.modalRef = this.modalService.show(template);
   }
+
   public _closeSubs(): void {
     this.lookedUser = new User();
     this.modalRef.hide();

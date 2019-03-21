@@ -1,24 +1,48 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="collapse navbar-collapse" id="responsive-menu">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="jumbotron" routerLinkActive="myActive">Главная</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="subscripts" routerLinkActive="myActive">Подписки</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="users" routerLinkActive="myActive">Кошелёк</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="profile" routerLinkActive="myActive">Профиль</a>
-          </li>
-        </ul>
-        <button class="btn btn-outline-primary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" (click)="_openModal(auth_template)">Войти</button>
-        <button class="btn btn-outline-secondary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">Регистрация</button>
-      </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="responsive-menu">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="jumbotron" routerLinkActive="myActive">Главная</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="subscripts" routerLinkActive="myActive">Подписки</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="billingAccounts" routerLinkActive="myActive">Счета</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="users" routerLinkActive="myActive">Пользователи</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="profile" routerLinkActive="myActive">Профиль</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about" routerLinkActive="myActive">О нас</a>
+      </li>
 
-    <ng-template #auth_template>
-      <app-authorization></app-authorization>
-    </ng-template>
+    </ul>
+    <button class="btn btn-outline-primary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3"
+            (click)="_openModal(auth_template)">Войти
+    </button>
+    <button class="btn btn-outline-secondary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3"
+            (click)="_openModal(reg_template)">Регистрация
+    </button>
+  </div>
+</nav>
+
+<ng-template #auth_template>
+  <app-authorization></app-authorization>
+</ng-template>
+
+<ng-template #reg_template>
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form">
+        <input type="text" placeholder="Логин"/>
+        <input type="password" placeholder="Пароль"/>
+        <input type="email" placeholder="email"/>
+        <button>Регистрация</button>
+      </form>
+    </div>
+  </div>
+</ng-template>

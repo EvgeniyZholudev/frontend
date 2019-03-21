@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Subscript} from '../model/subscript';
 import {SubscriptService} from '../service/subscriptService/subscript.service';
-import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-subscript',
@@ -9,9 +9,12 @@ import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
   styleUrls: ['./subscript.component.css']
 })
 export class SubscriptComponent implements OnInit {
+  addableSubscript: Subscript;
   public subscripts: Subscript[];
+  private modalRef: BsModalRef;
 
-  constructor(private subscriptService: SubscriptService, private loadingService: Ng4LoadingSpinnerService) {
+
+  constructor(private subscriptService: SubscriptService, private modalService: BsModalService) {
   }
 
   ngOnInit() {
@@ -19,11 +22,16 @@ export class SubscriptComponent implements OnInit {
   }
 
   private loadSubscripts(): void {
-    this.loadingService.show();
     this.subscriptService.getSubscripts().subscribe(data => {
       this.subscripts = data;
     });
-    this.loadingService.hide();
+  }
+  public _openModaltoSubscript(template: TemplateRef<any>, subscript: Subscript): void {
+    this.modalRef = this.modalService.show(template);
+    this.addableSubscript = subscript;
+  }
+  public _openModalAddSubscript(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template);
   }
 
 }
