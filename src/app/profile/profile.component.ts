@@ -1,23 +1,21 @@
 import {Component, Input, OnInit, TemplateRef} from '@angular/core';
-import {User} from '../model/user';
 import {UserService} from '../service/userService/user.service';
 import {BillingAccount} from '../model/billing-account';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {AuthorizationService} from "../service/authorizationService/authorization.service";
 
 @Component({
   selector: 'app-authorized-user',
-  templateUrl: './authorized-user.component.html',
-  styleUrls: ['./authorized-user.component.css']
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class AuthorizedUserComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
-  private users: User[];
-  public authUser: User = new User();
   public selectedBillingAccount: BillingAccount = new BillingAccount();
 
   public modalRef: BsModalRef;
 
-  constructor(private userService: UserService, private modalService: BsModalService) {
+  constructor(private userService: UserService, private modalService: BsModalService, public authService: AuthorizationService) {
   }
 
   public _openModal(template: TemplateRef<any>): void {
@@ -25,10 +23,7 @@ export class AuthorizedUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(data => {
-      this.users = data;
-      this.authUser = this.users[0];
-    });
+
   }
 
   public countPricePerDay(): number {

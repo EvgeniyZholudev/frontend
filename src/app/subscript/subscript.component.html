@@ -1,32 +1,20 @@
-<div class="container">
-  <div class="justify-content-center">
-    <table class="table table-hover">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">ПОДПИСКА</th>
-        <th scope="col">ОПИСАНИЕ</th>
-        <th scope="col">ЦЕНА</th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let subscript of subscripts">
-        <td scope="row">{{subscript.name}}</td>
-        <td>{{subscript.description}}</td>
-        <td>{{subscript.pricePerDay}} RUB/д.</td>
-        <td>
-          <button type="button" class="btn btn-primary" (click)="_openModaltoSubscript(toSubscript, subscript)">
-            Подписаться
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+<div class="container w-75">
+  <div class="text-center">
+    <div class="card mt-3 position-relative justify-content-center align-content-center"
+         *ngFor="let subscript of subscripts">
+      <div class="card-title">
+        <h5 >{{subscript.name}}</h5>
+      </div>
 
+      <img src="https://незабываемая.москва/uploads/posts/ekskursiya_na_smotrovuyu_ploshchadku_panorama_360_2.jpg"
+           class="img-fluid" alt="Responsive image">
+      <div class="card-body position-absolute w-100">
+
+        <p class="card-text">{{subscript.description}}</p>
+        <a (click)="_openModaltoSubscript(toSubscript, subscript)" class="btn btn-primary">Подписаться</a>
+      </div>
+    </div>
   </div>
-  <button type="button" class="btn btn-primary" (click)="_openModalAddSubscript(addSubscript, subscript)">Добавить
-    подписку
-  </button>
 </div>
 
 <ng-template #addSubscript>

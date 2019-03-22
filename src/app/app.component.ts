@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from './model/user';
+import {AuthorizationService} from './service/authorizationService/authorization.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {User} from './model/user';
 export class AppComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private authService: AuthorizationService) {
   }
 
   ngOnInit() {

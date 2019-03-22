@@ -1,5 +1,6 @@
 import {BillingAccount} from './billing-account';
 
+
 export class User {
   id: number;
   login: string;

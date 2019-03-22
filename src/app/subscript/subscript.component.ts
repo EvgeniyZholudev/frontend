@@ -26,10 +26,12 @@ export class SubscriptComponent implements OnInit {
       this.subscripts = data;
     });
   }
+
   public _openModaltoSubscript(template: TemplateRef<any>, subscript: Subscript): void {
     this.modalRef = this.modalService.show(template);
     this.addableSubscript = subscript;
   }
+
   public _openModalAddSubscript(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template);
   }

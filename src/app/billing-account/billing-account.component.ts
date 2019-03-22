@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthorizationService} from "../service/authorizationService/authorization.service";
 
 @Component({
   selector: 'app-billing-account',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillingAccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthorizationService) { }
 
   ngOnInit() {
   }

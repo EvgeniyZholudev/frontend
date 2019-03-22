@@ -6,9 +6,16 @@
         <div class="card-body">
           <div class="card-title mb-4">
             <div class="d-flex justify-content-start">
+              <div class="image-container">
+                <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                <div class="middle">
+                  <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                  <input type="file" style="display: none;" id="profilePicture" name="file" />
+                </div>
+              </div>
               <div class="userData ml-3">
-                <h4>Логин: {{authUser.login}}</h4>
-                <h5>Email: {{authUser.email}}</h5>
+                <h4>Логин: {{authService.authorizedUser.login}}</h4>
+                <h5>Email: {{authService.authorizedUser.email}}</h5>
               </div>
 
             </div>
@@ -20,7 +27,7 @@
                       <label for="exampleFormControlSelect1">Выберите billing account для пополнения:</label>
                       <select class="form-control w-25" id="exampleFormControlSelect1"
                               [(ngModel)]="selectedBillingAccount">
-                        <option *ngFor="let billingAccount of authUser.billingAccounts"
+                        <option *ngFor="let billingAccount of authService.authorizedUser.billingAccounts"
                                 [ngValue]="billingAccount">{{billingAccount.name}}</option>
                       </select>
                     </div>
@@ -81,5 +88,5 @@
     </tr>
     </tbody>
   </table>
-<h6>Плата за день: {{countPricePerDay()}}</h6>
+  <h6>Плата за день: {{countPricePerDay()}}</h6>
 </ng-template>
