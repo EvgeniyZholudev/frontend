@@ -12,10 +12,10 @@
 .card:hover .card-text{
   opacity: 1;
 }
-.card-text, .btn{
+.card-text, .btn-hide{
   opacity: 0;
 }
-.card:hover .btn{
+.card:hover .btn-hide{
   opacity: 1;
 }
 

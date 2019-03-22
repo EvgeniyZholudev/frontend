@@ -1,6 +1,6 @@
 <div class="container">
   <div class="justify-content-center">
-    <table class="table table-hover">
+    <table class="table text-center">
       <thead class="thead-dark">
       <tr>
         <th scope="col">НАЗВАНИЕ</th>
@@ -9,7 +9,7 @@
         <th scope="col"></th>
       </tr>
       </thead>
-      <tbody>
+      <tbody class="table-dark">
       <tr *ngFor="let billingAccount of authService.authorizedUser.billingAccounts">
         <td scope="row">{{billingAccount.name}}</td>
         <td>{{billingAccount.balance}} RUB</td>
@@ -24,7 +24,26 @@
     </table>
 
   </div>
-  <button type="button" class="btn btn-primary">Добавить
-    аккаунт
+  <button type="button" class="btn btn-primary">Добавить аккаунт
   </button>
 </div>
+
+<ng-template #subsModal>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ПОДПИСКА</th>
+      <th scope="col">ОПИСАНИЕ</th>
+      <th scope="col">ЦЕНА</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let subscript of selectedBillingAccount.subscripts">
+      <td scope="row">{{subscript.name}}</td>
+      <td>{{subscript.description}}</td>
+      <td>{{subscript.pricePerDay}} RUB/д.</td>
+    </tr>
+    </tbody>
+  </table>
+  <h6>Плата за день: {{countPricePerDay()}}</h6>
+</ng-template>

@@ -8,6 +8,16 @@ import {Subscript} from '../../model/subscript';
 })
 export class SubscriptService {
 
+  private _selectedSubscript: Subscript;
+
+  get selectedSubscript(): Subscript {
+    return this._selectedSubscript;
+  }
+
+  set selectedSubscript(value: Subscript) {
+    this._selectedSubscript = value;
+  }
+
   constructor(private http: HttpClient) {
   }
 

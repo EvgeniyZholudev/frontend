@@ -1,35 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="responsive-menu">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="jumbotron" routerLinkActive="myActive">Главная</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="subscripts" routerLinkActive="myActive">Подписки</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="billing-accounts" routerLinkActive="myActive">Счета</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="users" routerLinkActive="myActive">Пользователи</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="profile" routerLinkActive="myActive">Профиль</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="about" routerLinkActive="myActive">О нас</a>
-      </li>
 
-    </ul>
-    <button class="btn btn-outline-primary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3"
-            (click)="_openModal(auth_template)">Войти
-    </button>
-    <button class="btn btn-outline-secondary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3"
-            (click)="_openModal(reg_template)">Регистрация
-    </button>
-  </div>
-</nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="collapse navbar-collapse" id="responsive-menu">
+      <ul class="navbar-nav mr-auto w-100 justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="jumbotron" routerLinkActive="myActive">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="subscripts" routerLinkActive="myActive">Подписки</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="billing-accounts" routerLinkActive="myActive">Счета</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="profile" routerLinkActive="myActive">Профиль</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about" routerLinkActive="myActive">О нас</a>
+        </li>
 
+      </ul>
+      <button class="btn btn-outline-primary float-right"
+              (click)="_openModal(auth_template)">Войти
+      </button>
+      <button class="btn btn-outline-secondary ml-3"
+              (click)="_openModal(reg_template)">Регистрация
+      </button>
+    </div>
+  </nav>
 <ng-template #auth_template>
   <app-authorization></app-authorization>
 </ng-template>

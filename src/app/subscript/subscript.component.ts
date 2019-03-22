@@ -1,7 +1,9 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Subscript} from '../model/subscript';
 import {SubscriptService} from '../service/subscriptService/subscript.service';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {ModalService} from "../service/modalService/modal.service";
+import {AuthorizationService} from "../service/authorizationService/authorization.service";
+import {BillingAccountService} from "../service/billingAccountService/billingAccount.service";
 
 @Component({
   selector: 'app-subscript',
@@ -9,12 +11,10 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap';
   styleUrls: ['./subscript.component.css']
 })
 export class SubscriptComponent implements OnInit {
-  addableSubscript: Subscript;
   public subscripts: Subscript[];
-  private modalRef: BsModalRef;
 
-
-  constructor(private subscriptService: SubscriptService, private modalService: BsModalService) {
+  constructor(private subscriptService: SubscriptService, public modalService: ModalService,
+              public authService: AuthorizationService, public billingAccountService: BillingAccountService) {
   }
 
   ngOnInit() {
@@ -27,13 +27,13 @@ export class SubscriptComponent implements OnInit {
     });
   }
 
-  public _openModaltoSubscript(template: TemplateRef<any>, subscript: Subscript): void {
-    this.modalRef = this.modalService.show(template);
-    this.addableSubscript = subscript;
+  public openModaltoSubscript(template: TemplateRef<any>, subscript: Subscript): void {
+    this.modalService.openModal(template);
+    this.subscriptService.selectedSubscript = Subscript.cloneSubscript(subscript);
   }
 
-  public _openModalAddSubscript(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
+  public openModalAddSubscript(template: TemplateRef<any>): void {
+    this.modalService.openModal(template);
   }
 
 }

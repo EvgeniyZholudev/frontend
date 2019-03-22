@@ -26,14 +26,7 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  public countPricePerDay(): number {
-    let result = 0;
-    for (const subscript of this.selectedBillingAccount.subscripts) {
-      result += subscript.pricePerDay;
-    }
-    return result;
 
-  }
 
 
 }
