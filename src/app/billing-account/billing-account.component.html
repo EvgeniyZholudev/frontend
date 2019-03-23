@@ -5,14 +5,20 @@
       <tr>
         <th scope="col">НАЗВАНИЕ</th>
         <th scope="col">БАЛАНС</th>
+        <th scope="col">КОЛ-ВО ПОДПИСОК</th>
+        <th scope="col">ПЛАТА</th>
         <th scope="col">СТАТУС</th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody class="table-dark">
-      <tr *ngFor="let billingAccount of authService.authorizedUser.billingAccounts">
+      <tr *ngFor="let billingAccount of authService.authorizedUser.billingAccounts"
+      >
         <td scope="row">{{billingAccount.name}}</td>
         <td>{{billingAccount.balance}} RUB</td>
+        <td>{{billingAccount.subscripts.length}}<a class="btn text-primary" (click)="openModalSubsOfBA(subsModal, billingAccount)">
+          (Показать)</a></td>
+        <td>{{billingAccountService.countPricePerDay(billingAccount)}} RUB/д.</td>
         <td>{{billingAccount.status ? "Активно" : "Заблокировано"}}</td>
         <td>
           <button type="button" class="btn btn-primary" [disabled]="!billingAccount.status">
@@ -29,21 +35,27 @@
 </div>
 
 <ng-template #subsModal>
-  <table class="table table-hover">
+  <table class="table table-hover border-bottom">
     <thead class="thead-dark">
     <tr>
       <th scope="col">ПОДПИСКА</th>
       <th scope="col">ОПИСАНИЕ</th>
       <th scope="col">ЦЕНА</th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let subscript of selectedBillingAccount.subscripts">
+    <tr *ngFor="let subscript of billingAccountService.selectedBillingAccount.subscripts">
       <td scope="row">{{subscript.name}}</td>
       <td>{{subscript.description}}</td>
       <td>{{subscript.pricePerDay}} RUB/д.</td>
+      <td>
+        <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2"
+                [disabled]="!billingAccountService.selectedBillingAccount.status">Отписаться
+        </button>
+      </td>
     </tr>
     </tbody>
   </table>
-  <h6>Плата за день: {{countPricePerDay()}}</h6>
+  <h6>Плата за день: {{billingAccountService.countPricePerDay(billingAccountService.selectedBillingAccount)}}</h6>
 </ng-template>

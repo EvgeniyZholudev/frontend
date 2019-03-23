@@ -5,7 +5,7 @@ import {BillingAccount} from "../../model/billing-account";
   providedIn:'root'
 })
 export class BillingAccountService{
-  private _selectedBillingAccount: BillingAccount;
+  private _selectedBillingAccount: BillingAccount = new BillingAccount();
 
   get selectedBillingAccount(): BillingAccount {
     return this._selectedBillingAccount;
@@ -21,6 +21,10 @@ export class BillingAccountService{
       result += subscript.pricePerDay;
     }
     return result;
-
   }
+
+  public clearSelectedBillingAccount(): void {
+    this.selectedBillingAccount = new BillingAccount();
+}
+
 }

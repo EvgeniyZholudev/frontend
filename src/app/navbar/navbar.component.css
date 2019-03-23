@@ -95,3 +95,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.navbar-dark .navbar-nav .nav-link {
+  color: #f8f9fa;
+  font-size: large;
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+  background-color: rgba(54,51,53,1);
+}
+

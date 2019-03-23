@@ -1,8 +1,9 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../service/userService/user.service';
 import {BillingAccount} from '../model/billing-account';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {AuthorizationService} from "../service/authorizationService/authorization.service";
+import {BillingAccountService} from "../service/billingAccountService/billingAccount.service";
+import {ModalService} from "../service/modalService/modal.service";
 
 @Component({
   selector: 'app-authorized-user',
@@ -11,22 +12,13 @@ import {AuthorizationService} from "../service/authorizationService/authorizatio
 })
 export class ProfileComponent implements OnInit {
 
-  public selectedBillingAccount: BillingAccount = new BillingAccount();
-
-  public modalRef: BsModalRef;
-
-  constructor(private userService: UserService, private modalService: BsModalService, public authService: AuthorizationService) {
+  constructor(private userService: UserService, public authService: AuthorizationService,
+              public billingAccountService: BillingAccountService, public modalService: ModalService) {
   }
 
-  public _openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
-  }
 
   ngOnInit() {
-
   }
-
-
 
 
 }

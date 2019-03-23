@@ -11,7 +11,7 @@
       <div class="card-body position-absolute w-100">
 
         <p class="card-text">{{subscript.description}}</p>
-        <a (click)="openModaltoSubscript(toSubscript, subscript)" class="btn btn-primary btn-hide">Подписаться</a>
+        <a (click)="openModalToSubscript(toSubscript, subscript)" class="btn btn-primary btn-hide">Подписаться</a>
         <p class="card-text mt-1">{{subscript.pricePerDay}} RUB / {{subscript.pricePerDay}} д.</p>
       </div>
     </div>
@@ -19,46 +19,55 @@
 </div>
 
 <ng-template #toSubscript>
-  <div class="container">
-    <div class="row mt-2">
-      <div class="col-12">
-        <div class="form-group justify-content-center">
-          <label for="exampleFormControlSelect1">Выберите billing account, на который хотите добавить подписку:</label>
-          <select class="form-control w-25" id="exampleFormControlSelect1"
-                  [(ngModel)]="billingAccountService.selectedBillingAccount">
-            <option *ngFor="let billingAccount of authService.authorizedUser.billingAccounts"
-                    [ngValue]="billingAccount">{{billingAccount.name}}</option>
-          </select>
-        </div>
-        <h6>Имя аккаунта: {{billingAccountService.selectedBillingAccount.name}}</h6>
-        <h6>Баланс: {{billingAccountService.selectedBillingAccount.balance}}</h6>
-        <h6>Статус: {{billingAccountService.selectedBillingAccount.status}}</h6>
-        <h6>Всего подписок на аккаунте: {{billingAccountService.selectedBillingAccount.subscripts.length}}</h6>
-        <h6>Плата за день: {{billingAccountService.countPricePerDay(billingAccountService.selectedBillingAccount)}}</h6>
-        <p></p>
-        <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2 mb-3">Добавить подписку в выбранный
-          аккаунт
-        </button>
-      </div>
-    </div>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Добавить новую подписку</h4>
+    <button type="button" class="close pull-right"
+            aria-label="Close" (click)="closeBAModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <div class="modal-body">
 
+    <div class="form-group justify-content-center">
+      <label for="exampleFormControlSelect1">Выберите billing account, на который хотите добавить подписку:</label>
+      <select class="form-control w-25" id="exampleFormControlSelect1"
+              [(ngModel)]="billingAccountService.selectedBillingAccount">
+        <option *ngFor="let billingAccount of authService.authorizedUser.billingAccounts"
+                [ngValue]="billingAccount">{{billingAccount.name}}</option>
+      </select>
+    </div>
+    <h6>Имя аккаунта: {{billingAccountService.selectedBillingAccount.name}}</h6>
+    <h6>Баланс: {{billingAccountService.selectedBillingAccount.balance}}</h6>
+    <h6>Статус: {{billingAccountService.selectedBillingAccount.status}}</h6>
+    <h6>Всего подписок на аккаунте: {{billingAccountService.selectedBillingAccount.subscripts.length}}</h6>
+    <h6>Плата за день: {{billingAccountService.countPricePerDay(billingAccountService.selectedBillingAccount)}}</h6>
+    <p></p>
+    <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2 mb-3">Добавить подписку в выбранный
+      аккаунт
+    </button>
+  </div>
 </ng-template>
 
 <ng-template #addSubscript>
-  <div class="container">
-    <div class="row mt-2">
-      <div class="col-12">
-        <div class="form-group justify-content-center">
-          <label for="form1" class="mt-1">Название подписки:</label>
-          <input type="text" id="form1" class="form-control mt-1">
-          <label for="form2" class="mt-1">Описание:</label>
-          <textarea class="form-control mt-1" id="form2" rows="3"></textarea>
-          <label for="form3" class="mt-1">Плата за день:</label>
-          <input type="number" id="form3" class="form-control mt-1">
-          <button class="btn btn-primary mt-3">Добавить</button>
-        </div>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Добавить новую подписку</h4>
+    <button type="button" class="close pull-right"
+            aria-label="Close" (click)="closeBAModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group justify-content-center">
+      <label for="form1" class="mt-1">Название подписки:</label>
+      <input type="text" id="form1" class="form-control mt-1" required>
+      <div class="alert alert-danger" role="alert">
+        Это уведомление об опасности — check it out!
       </div>
+      <label for="form2" class="mt-1">Описание:</label>
+      <textarea class="form-control mt-1" id="form2" rows="3"></textarea>
+      <label for="form3" class="mt-1">Плата за день:</label>
+      <input type="number" id="form3" class="form-control mt-1">
+      <button class="btn btn-primary mt-3">Добавить</button>
     </div>
   </div>
 </ng-template>
