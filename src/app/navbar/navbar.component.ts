@@ -1,5 +1,5 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {Component, OnInit} from '@angular/core';
+import {ModalService} from "../service/modalService/modal.service";
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +8,9 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 })
 export class NavbarComponent implements OnInit {
 
-  public modalRef: BsModalRef;
-
-  constructor(private modalService: BsModalService) {
+  constructor(private modalService: ModalService) {
   }
 
-  public _openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
-  }
 
   ngOnInit() {
   }

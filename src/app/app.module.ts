@@ -18,6 +18,8 @@ import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { ProfileComponent } from './profile/profile.component';
 import {PaginationModule, TabsModule} from 'ngx-bootstrap';
 import { BillingAccountComponent } from './billing-account/billing-account.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { AddSubscriptComponent } from './add-subscript/add-subscript.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'jumbotron', pathMatch: 'full'},
@@ -37,7 +39,9 @@ const routes: Routes = [
     NavbarComponent,
     JumbotronComponent,
     ProfileComponent,
-    BillingAccountComponent
+    BillingAccountComponent,
+    RegistrationComponent,
+    AddSubscriptComponent
   ],
 
   exports: [RouterModule],

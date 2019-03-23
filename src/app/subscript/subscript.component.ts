@@ -13,6 +13,7 @@ import {BillingAccountService} from "../service/billingAccountService/billingAcc
 export class SubscriptComponent implements OnInit {
   public subscripts: Subscript[];
   public addableSubscript: Subscript = new Subscript();
+
   constructor(private subscriptService: SubscriptService, public modalService: ModalService,
               public authService: AuthorizationService, public billingAccountService: BillingAccountService) {
   }
@@ -30,11 +31,11 @@ export class SubscriptComponent implements OnInit {
   public openModalToSubscript(template: TemplateRef<any>, subscript: Subscript): void {
     this.modalService.openModal(template);
     this.subscriptService.selectedSubscript = Subscript.cloneSubscript(subscript);
-    this.billingAccountService.clearSelectedBillingAccount();
   }
 
-  public closeBAModal(): void {
+  public closeModal(): void {
     this.modalService.closeModal();
+    this.billingAccountService.clearSelectedBillingAccount();
   }
 
 }

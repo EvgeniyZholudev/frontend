@@ -12,8 +12,12 @@ import {ModalService} from "../service/modalService/modal.service";
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private userService: UserService, public authService: AuthorizationService,
-              public billingAccountService: BillingAccountService, public modalService: ModalService) {
+  public newLogin: string;
+  public newEmail: string;
+  public oldPassword: string;
+  public newPassword: string;
+
+  constructor(public authService: AuthorizationService, public modalService: ModalService) {
   }
 
 

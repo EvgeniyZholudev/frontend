@@ -11,17 +11,22 @@ import {ModalService} from "../service/modalService/modal.service";
 })
 export class BillingAccountComponent implements OnInit {
 
-  public selectedBillingAccount: BillingAccount;
-
+  public inputSum: number;
   constructor(public authService: AuthorizationService, public billingAccountService: BillingAccountService,
               public modalService: ModalService) { }
 
   ngOnInit() {
   }
 
-  public openModalSubsOfBA(template: TemplateRef<any>, billingAccount: BillingAccount){
+  public openModal(template: TemplateRef<any>, billingAccount: BillingAccount){
     this.modalService.openModal(template);
     this.billingAccountService.selectedBillingAccount = BillingAccount.cloneBillingAccount(billingAccount);
+  }
+
+  public closeModal(){
+    this.modalService.closeModal();
+    this.billingAccountService.clearSelectedBillingAccount();
+    this.inputSum = 0;
   }
 
 }

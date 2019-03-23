@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-75">
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -7,56 +7,70 @@
           <div class="card-title mb-4">
             <div class="d-flex justify-content-start">
               <div class="image-container">
-                <img src="http://placehold.it/150x150" id="imgProfile" class="img-thumbnail" />
+                <img src="http://placehold.it/150x150" id="imgProfile" class="img-thumbnail"/>
                 <div class="middle">
-                  <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                  <input type="file" style="display: none;" id="profilePicture" name="file" />
+                  <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change"/>
+                  <input type="file" style="display: none;" id="profilePicture" name="file"/>
                 </div>
               </div>
-              <div class="userData ml-3">
+              <div class="ml-3">
                 <h4>Логин: {{authService.authorizedUser.login}}</h4>
                 <h5>Email: {{authService.authorizedUser.email}}</h5>
+              </div>
+              <div class="float-right">
+                <button class="btn btn-primary" (click)="modalService.openModal(addSubscript)">Добавить подписку</button>
               </div>
 
             </div>
             <div class="row mt-2">
               <div class="col-12">
                 <tabset>
-                  <tab heading="Пополнить баланс">
-                    <div class="form-group">
-                      <label for="exampleFormControlSelect1">Выберите billing account для пополнения:</label>
-                      <select class="form-control w-25" id="exampleFormControlSelect1"
-                              [(ngModel)]="billingAccountService.selectedBillingAccount">
-                        <option *ngFor="let billingAccount of authService.authorizedUser.billingAccounts"
-                                [ngValue]="billingAccount">{{billingAccount.name}}</option>
-                      </select>
-                    </div>
-                    <h6>Имя аккаунта: {{billingAccountService.selectedBillingAccount.name}}</h6>
-                    <h6>Баланс: {{billingAccountService.selectedBillingAccount.balance}}</h6>
-                    <h6>Статус: {{billingAccountService.selectedBillingAccount.status}}</h6>
-                    <button class="btn btn-link" (click)="modalService.openModal(subsModal)">Подписки</button>
-                    <p></p>
-                    <label for="exampleForm2">Введите сумму:</label>
-                    <input type="number" id="exampleForm2" class="form-control w-25">
-                    <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2">Пополнить</button>
-
-                  </tab>
                   <tab heading="Сменить логин">
                     <label for="form1" class="mt-1">Введите новый логин:</label>
-                    <input type="text" id="form1" class="form-control w-25 mt-1">
-                    <button class="btn btn-primary mt-3">Сменить логин</button>
+                    <input type="text" id="form1" class="form-control w-25 mt-1" name="login" [(ngModel)]="newLogin"
+                           #login="ngModel" required pattern="[a-zA-Z0-9_]{3,30}">
+                    <div [hidden]="login.untouched || login.valid" class="alert alert-danger w-25">
+                      Вы ввели неверный логин
+                    </div>
+                    <div [hidden]="newLogin != authService.authorizedUser.login" class="alert alert-danger w-25">
+                      Вы ввели нынешний логин
+                    </div>
+                    <button class="btn btn-primary mt-3" [disabled]="login.invalid">Сменить логин</button>
                   </tab>
                   <tab heading="Сменить пароль">
                     <label for="form2" class="mt-1">Введите старый пароль:</label>
-                    <input type="password" id="form2" class="form-control w-25 mt-1">
+                    <input type="password" id="form2" class="form-control w-25 mt-1" name="oPassword"
+                           [(ngModel)]="oldPassword"
+                           #oPassword="ngModel" required pattern="[a-zA-Z0-9_]{3,30}">
+                    <div [hidden]="oPassword.untouched || oPassword.valid" class="alert alert-danger w-25">
+                      Вы ввели неверный пароль
+                    </div>
                     <label for="form3" class="mt-1">Введите новый пароль:</label>
-                    <input type="password" id="form3" class="form-control w-25 mt-1">
-                    <button class="btn btn-primary mt-3">Сменить пароль</button>
+                    <input type="password" id="form3" class="form-control w-25 mt-1" name="nPassword"
+                           [(ngModel)]="newPassword"
+                           #nPassword="ngModel" required pattern="[a-zA-Z0-9_]{3,30}">
+                    <div [hidden]="nPassword.untouched || nPassword.valid" class="alert alert-danger w-25">
+                      Вы ввели неверный пароль
+                    </div>
+                    <div [hidden]="newPassword != oldPassword || oPassword.untouched || nPassword.untouched" class="alert alert-danger w-25">
+                      Вы ввели одинаковые пароли, чего в принципе быть не может
+                    </div>
+                    <button class="btn btn-primary mt-3" [disabled]="oPassword.invalid ||  nPassword.invalid || newPassword == oldPassword">Сменить
+                      пароль
+                    </button>
                   </tab>
                   <tab heading="Сменить email">
                     <label for="form4" class="mt-1">Введите новый email:</label>
-                    <input type="text" id="form4" class="form-control w-25 mt-1">
-                    <button class="btn btn-primary mt-3">Сменить email</button>
+                    <input type="text" id="form4" class="form-control w-25 mt-1" name="email"
+                           [(ngModel)]="newEmail"
+                           #email="ngModel" required pattern="[a-zA-Z0-9_.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}">
+                    <div [hidden]="email.untouched || email.valid" class="alert alert-danger w-25">
+                      Вы ввели неверный email
+                    </div>
+                    <div [hidden]="newEmail != authService.authorizedUser.email" class="alert alert-danger w-25">
+                      Вы ввели нынешний email
+                    </div>
+                    <button class="btn btn-primary mt-3" [disabled]="email.invalid">Сменить email</button>
                   </tab>
                 </tabset>
               </div>
@@ -71,22 +85,8 @@
   </div>
 </div>
 
-<ng-template #subsModal>
-  <table class="table table-hover">
-    <thead class="thead-dark">
-    <tr>
-      <th scope="col">ПОДПИСКА</th>
-      <th scope="col">ОПИСАНИЕ</th>
-      <th scope="col">ЦЕНА</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let subscript of billingAccountService.selectedBillingAccount.subscripts">
-      <td scope="row">{{subscript.name}}</td>
-      <td>{{subscript.description}}</td>
-      <td>{{subscript.pricePerDay}} RUB/д.</td>
-    </tr>
-    </tbody>
-  </table>
-  <h6>Плата за день: {{billingAccountService.countPricePerDay(billingAccountService.selectedBillingAccount)}}</h6>
+<ng-template #addSubscript>
+  <app-add-subscript></app-add-subscript>
 </ng-template>
+
+

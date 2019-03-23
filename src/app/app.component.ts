@@ -11,7 +11,7 @@ import {AuthorizationService} from './service/authorizationService/authorization
 export class AppComponent implements OnInit {
 
 
-  constructor(private authService: AuthorizationService) {
+  constructor() {
   }
 
   ngOnInit() {
