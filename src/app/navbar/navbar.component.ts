@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalService} from "../service/modalService/modal.service";
+import {AuthorizationService} from "../service/authorizationService/authorization.service";
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import {ModalService} from "../service/modalService/modal.service";
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private modalService: ModalService) {
+  constructor(private modalService: ModalService, private authService: AuthorizationService) {
   }
 
 

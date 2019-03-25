@@ -18,7 +18,9 @@
                 <h5>Email: {{authService.authorizedUser.email}}</h5>
               </div>
               <div class="float-right">
-                <button class="btn btn-primary" (click)="modalService.openModal(addSubscript)">Добавить подписку</button>
+                <button *ngIf="authService.authorizedUser.role == 'Admin'" class="btn btn-primary"
+                        (click)="modalService.openModal(addSubscript)">Добавить подписку
+                </button>
               </div>
 
             </div>
@@ -52,10 +54,12 @@
                     <div [hidden]="nPassword.untouched || nPassword.valid" class="alert alert-danger w-25">
                       Вы ввели неверный пароль
                     </div>
-                    <div [hidden]="newPassword != oldPassword || oPassword.untouched || nPassword.untouched" class="alert alert-danger w-25">
+                    <div [hidden]="newPassword != oldPassword || oPassword.untouched || nPassword.untouched"
+                         class="alert alert-danger w-25">
                       Вы ввели одинаковые пароли, чего в принципе быть не может
                     </div>
-                    <button class="btn btn-primary mt-3" [disabled]="oPassword.invalid ||  nPassword.invalid || newPassword == oldPassword">Сменить
+                    <button class="btn btn-primary mt-3"
+                            [disabled]="oPassword.invalid ||  nPassword.invalid || newPassword == oldPassword">Сменить
                       пароль
                     </button>
                   </tab>

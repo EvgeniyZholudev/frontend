@@ -11,9 +11,11 @@
       <div class="card-body position-absolute w-100">
 
         <p class="card-text">{{subscript.description}}</p>
-        <button (click)="openModalSubscript(toSubscript, subscript)" class="btn btn-primary btn-hide">Подписаться
+        <button *ngIf="authService.authorizedUser.role == 'User'" (click)="openModalSubscript(toSubscript, subscript)"
+                class="btn btn-primary btn-hide">Подписаться
         </button>
-        <button (click)="openModalSubscript(editSubscript, subscript)" class="btn btn-primary btn-hide">Редактировать
+        <button *ngIf="authService.authorizedUser.role == 'Admin'"
+                (click)="openModalSubscript(editSubscript, subscript)" class="btn btn-primary btn-hide">Редактировать
         </button>
         <p class="card-text mt-1">{{subscript.pricePerDay}} RUB / {{subscript.pricePerDay}} д.</p>
       </div>
@@ -65,7 +67,8 @@
   <div class="modal-body">
     <div class="form-group justify-content-center">
       <label for="form1" class="mt-1">Название подписки:</label>
-      <input type="text" id="form1" class="form-control mt-1" name="name" [(ngModel)]="subscriptService.selectedSubscript.name"
+      <input type="text" id="form1" class="form-control mt-1" name="name"
+             [(ngModel)]="subscriptService.selectedSubscript.name"
              #name="ngModel" required>
       <div [hidden]="name.untouched || name.valid" class="alert alert-danger">
         Вы ввели неверное название

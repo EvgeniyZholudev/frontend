@@ -26,6 +26,12 @@ export class AuthorizationService {
       this.users = data;
       this.authorizedUser = this.users[0];
     })
+  }
 
+  public isRole(): boolean {
+    if(typeof this.authorizedUser.role === 'undefined'){
+      return false;
+    }
+    return true;
   }
 }

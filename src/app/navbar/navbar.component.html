@@ -8,13 +8,13 @@
         <a class="nav-link" routerLink="subscripts" routerLinkActive="myActive">Подписки</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="billing-accounts" routerLinkActive="myActive">Счета</a>
+        <a class="nav-link" *ngIf="authService.authorizedUser.role == 'User'" routerLink="billing-accounts" routerLinkActive="myActive">Счета</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="profile" routerLinkActive="myActive">Профиль</a>
+        <a class="nav-link" *ngIf="authService.isRole()" routerLink="profile" routerLinkActive="myActive">Профиль</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="users" routerLinkActive="myActive">Пользователи</a>
+        <a class="nav-link" *ngIf="authService.authorizedUser.role == 'Admin'" routerLink="users" routerLinkActive="myActive">Пользователи</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="about" routerLinkActive="myActive">О нас</a>
