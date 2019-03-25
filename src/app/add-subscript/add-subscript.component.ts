@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Subscript} from "../model/subscript";
 import {ModalService} from "../service/modalService/modal.service";
+import {SubscriptService} from "../service/subscriptService/subscript.service";
 
 @Component({
   selector: 'app-add-subscript',
@@ -9,10 +10,14 @@ import {ModalService} from "../service/modalService/modal.service";
 })
 export class AddSubscriptComponent implements OnInit {
 
-  public addableSubscript: Subscript = new Subscript();
-  constructor(public modalService: ModalService) { }
+  constructor(public modalService: ModalService, public subscriptService: SubscriptService) { }
 
   ngOnInit() {
+  }
+
+  public closeModal(){
+    this.modalService.closeModal();
+    this.subscriptService.clearSelectedSubscript();
   }
 
 }

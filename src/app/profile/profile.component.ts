@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
   public oldPassword: string;
   public newPassword: string;
 
+
+
   constructor(public authService: AuthorizationService, public modalService: ModalService) {
   }
 

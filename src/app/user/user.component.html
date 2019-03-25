@@ -1,18 +1,63 @@
-<div class="table_of_users">
-  <table class="table">
-    <thead class="thead-light">
-    <tr>
-
-      <th scope="col">ЛОГИН</th>
-      <th scope="col">ПОЧТА</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of users">
-      <td scope="row">{{user.login}}</td>
-      <td>{{user.email}}</td>
-    </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="justify-content-center">
+    <table class="table text-center">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ЛОГИН</th>
+        <th scope="col">ПОЧТА</th>
+        <th scope="col">БИЛЛИНГ АККАУНТЫ</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody class="table-light">
+      <tr *ngFor="let user of users">
+        <td scope="row">{{users.indexOf(user) + 1}}</td>
+        <td>{{user.login}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.billingAccounts.length}}<a class="btn text-primary"
+                                              (click)="openModal(userModal, user)">
+          (Показать)</a></td>
+        <td>
+          <button type="button" class="btn btn-primary">
+            Удалить
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<ng-template #userModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Добавить новую подписку</h4>
+    <button type="button" class="close pull-right"
+            aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group justify-content-center">
+      <label for="exampleFormControlSelect1">Выберите billing account, на который хотите добавить подписку:</label>
+      <select class="form-control w-25" id="exampleFormControlSelect1"
+              [(ngModel)]="billingAccountService.selectedBillingAccount">
+        <option *ngFor="let billingAccount of userService.selectedUser.billingAccounts"
+                [ngValue]="billingAccount">{{billingAccount.name}}</option>
+      </select>
+    </div>
+    <h6>Имя аккаунта: {{billingAccountService.selectedBillingAccount.name}}</h6>
+    <h6>Баланс: {{billingAccountService.selectedBillingAccount.balance}}</h6>
+    <h6>Статус: {{billingAccountService.getSelectedBAStatus()}}</h6>
+    <h6>Всего подписок на аккаунте: {{billingAccountService.getSelectedBASubscriptsLength()}}</h6>
+    <h6>Плата за день: {{billingAccountService.countPricePerDay(billingAccountService.selectedBillingAccount)}}</h6>
+
+    <p></p>
+
+    <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2 mb-3"
+            [disabled]="billingAccountService.isSelectedBAIdUndefined()">
+      {{billingAccountService.selectedBillingAccount.status ? "Блокировать" : "Активировать"}}
+    </button>
+  </div>
+</ng-template>
 

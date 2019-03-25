@@ -4,7 +4,7 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap";
 @Injectable({
   providedIn: 'root'
 })
-export class ModalService{
+export class ModalService {
 
   public modalRef: BsModalRef;
 
@@ -12,10 +12,10 @@ export class ModalService{
   }
 
   public openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template, {backdrop: 'static'});
   }
 
-  public closeModal(){
+  public closeModal() {
     this.modalRef.hide()
   }
 

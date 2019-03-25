@@ -24,4 +24,8 @@ export class SubscriptService {
   public getSubscripts(): Observable<Subscript[]> {
     return this.http.get<Subscript[]>('../../../assets/subscripts.json');
   }
+
+  public clearSelectedSubscript(): void {
+    this.selectedSubscript = new Subscript();
+  }
 }
