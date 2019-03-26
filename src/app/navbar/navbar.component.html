@@ -2,30 +2,41 @@
   <div class="collapse navbar-collapse" id="responsive-menu">
     <ul class="navbar-nav mr-auto w-100 justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" routerLink="jumbotron" routerLinkActive="myActive">Главная</a>
+        <a class="nav-link" routerLink="jumbotron"
+           routerLinkActive="myActive">{{localizationService.currentLocalization.navbarMain}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="subscripts" routerLinkActive="myActive">Подписки</a>
+        <a class="nav-link" routerLink="subscripts"
+           routerLinkActive="myActive">{{localizationService.currentLocalization.navbarSubscripts}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authService.authorizedUser.role == 'User'" routerLink="billing-accounts" routerLinkActive="myActive">Счета</a>
+        <a class="nav-link" *ngIf="authService.authorizedUser.role == 'User'" routerLink="billing-accounts"
+           routerLinkActive="myActive">{{localizationService.currentLocalization.navbarBillingAccounts}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authService.isRole()" routerLink="profile" routerLinkActive="myActive">Профиль</a>
+        <a class="nav-link" *ngIf="authService.isRole()" routerLink="profile"
+           routerLinkActive="myActive">{{localizationService.currentLocalization.navbarProfile}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authService.authorizedUser.role == 'Admin'" routerLink="users" routerLinkActive="myActive">Пользователи</a>
+        <a class="nav-link" *ngIf="authService.authorizedUser.role == 'Admin'" routerLink="users"
+           routerLinkActive="myActive">{{localizationService.currentLocalization.navbarUsers}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="about" routerLinkActive="myActive">О нас</a>
+        <a class="nav-link" routerLink="about"
+           routerLinkActive="myActive">{{localizationService.currentLocalization.navbarAbout}}</a>
       </li>
-
     </ul>
-    <button class="btn btn-outline-primary float-right"
-            (click)="modalService.openModal(auth_template)">Войти
+
+    <select class="mr-3" id="exampleFormControlSelect1"
+            [(ngModel)]="localizationService.currentLocalization">
+      <option *ngFor="let localization of localizationService.localizations"
+              [ngValue]="localization">{{localization.language}}</option>
+    </select>
+    <button class="btn btn-outline-primary"
+            (click)="modalService.openModal(auth_template)">{{localizationService.currentLocalization.signIn}}
     </button>
     <button class="btn btn-outline-secondary ml-3"
-            (click)="modalService.openModal(reg_template)">Регистрация
+            (click)="modalService.openModal(reg_template)">{{localizationService.currentLocalization.registration}}
     </button>
   </div>
 </nav>

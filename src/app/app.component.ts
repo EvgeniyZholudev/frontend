@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from './model/user';
 import {AuthorizationService} from './service/authorizationService/authorization.service';
+import {LocalizationService} from "./service/localizationService/localization.service";
 
 
 @Component({
@@ -11,7 +12,7 @@ import {AuthorizationService} from './service/authorizationService/authorization
 export class AppComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private localization: LocalizationService) {
   }
 
   ngOnInit() {

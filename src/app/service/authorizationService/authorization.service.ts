@@ -24,7 +24,7 @@ export class AuthorizationService {
   private authorization(): void {
     this.userService.getUsers().subscribe(data => {
       this.users = data;
-      this.authorizedUser = this.users[0];
+      this.authorizedUser = this.users[1];
     })
   }
 

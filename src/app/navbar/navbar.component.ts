@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalService} from "../service/modalService/modal.service";
 import {AuthorizationService} from "../service/authorizationService/authorization.service";
+import {LocalizationService} from "../service/localizationService/localization.service";
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ import {AuthorizationService} from "../service/authorizationService/authorizatio
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private modalService: ModalService, private authService: AuthorizationService) {
+  constructor(private modalService: ModalService, private authService: AuthorizationService,
+              private localizationService: LocalizationService) {
   }
 
 
