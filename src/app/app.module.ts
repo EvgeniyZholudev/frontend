@@ -6,20 +6,20 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {SubscriptComponent} from './subscript/subscript.component';
+import {SubscriptComponent} from './modules/subscript/subscript.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import {Ng4LoadingSpinnerModule} from 'ng4-loading-spinner';
-import {UserComponent} from './user/user.component';
-import {AuthorizationComponent} from './authorization/authorization.component';
-import {NavbarComponent} from './navbar/navbar.component';
+import {UserComponent} from './modules/user/user.component';
+import {AuthorizationComponent} from './modules/navbar/authorization/authorization.component';
+import {NavbarComponent} from './modules/navbar/navbar.component';
 import {RouterModule, Routes} from '@angular/router';
-import { JumbotronComponent } from './jumbotron/jumbotron.component';
-import { ProfileComponent } from './profile/profile.component';
+import { JumbotronComponent } from './modules/jumbotron/jumbotron.component';
+import { ProfileComponent } from './modules/profile/profile.component';
 import {PaginationModule, TabsModule} from 'ngx-bootstrap';
-import { BillingAccountComponent } from './billing-account/billing-account.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { AddSubscriptComponent } from './add-subscript/add-subscript.component';
+import { BillingAccountComponent } from './modules/billing-account/billing-account.component';
+import { RegistrationComponent } from './modules/navbar/registration/registration.component';
+import { AddSubscriptComponent } from './modules/profile/add-subscript/add-subscript.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'jumbotron', pathMatch: 'full'},

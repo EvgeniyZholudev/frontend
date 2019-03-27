@@ -5,7 +5,7 @@ export class BillingAccount {
   name: string;
   balance: number;
   subscripts: Subscript[];
-  status: boolean;
+  active: boolean;
 
   static cloneBillingAccount(billingAccount: BillingAccount) : BillingAccount {
     const clonedBillingAccount: BillingAccount = new BillingAccount();
@@ -13,7 +13,7 @@ export class BillingAccount {
     clonedBillingAccount.name = billingAccount.name;
     clonedBillingAccount.balance = billingAccount.balance;
     clonedBillingAccount.subscripts = billingAccount.subscripts;
-    clonedBillingAccount.status = billingAccount.status;
+    clonedBillingAccount.active = billingAccount.active;
     return clonedBillingAccount;
   }
 }

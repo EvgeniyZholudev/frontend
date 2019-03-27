@@ -1,9 +1,9 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {Subscript} from '../model/subscript';
-import {SubscriptService} from '../service/subscriptService/subscript.service';
-import {ModalService} from "../service/modalService/modal.service";
-import {AuthorizationService} from "../service/authorizationService/authorization.service";
-import {BillingAccountService} from "../service/billingAccountService/billingAccount.service";
+import {Subscript} from '../models/subscript';
+import {SubscriptService} from '../../services/subscriptService/subscript.service';
+import {ModalService} from "../../services/modalService/modal.service";
+import {AuthorizationService} from "../../services/authorizationService/authorization.service";
+import {BillingAccountService} from "../../services/billingAccountService/billingAccount.service";
 
 @Component({
   selector: 'app-subscript',

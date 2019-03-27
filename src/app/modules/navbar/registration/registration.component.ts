@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalService} from "../service/modalService/modal.service";
+import {ModalService} from "../../../services/modalService/modal.service";
 
 @Component({
   selector: 'app-registration',

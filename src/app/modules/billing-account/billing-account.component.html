@@ -22,7 +22,7 @@
         <td>{{billingAccountService.countPricePerDay(billingAccount)}} RUB/д.</td>
         <td>{{billingAccountService.getSelectedBAStatus()}}</td>
         <td>
-          <button type="button" class="btn btn-primary" [disabled]="!billingAccount.status">
+          <button type="button" class="btn btn-primary" [disabled]="!billingAccount.active">
             Удалить
           </button>
           <button type="button" class="btn btn-primary ml-3" (click)="openModal(replenishBalance, billingAccount)">

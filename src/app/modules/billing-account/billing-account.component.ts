@@ -1,8 +1,8 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {AuthorizationService} from "../service/authorizationService/authorization.service";
-import {BillingAccount} from "../model/billing-account";
-import {BillingAccountService} from "../service/billingAccountService/billingAccount.service";
-import {ModalService} from "../service/modalService/modal.service";
+import {AuthorizationService} from "../../services/authorizationService/authorization.service";
+import {BillingAccount} from "../models/billing-account";
+import {BillingAccountService} from "../../services/billingAccountService/billingAccount.service";
+import {ModalService} from "../../services/modalService/modal.service";
 
 @Component({
   selector: 'app-billing-account',

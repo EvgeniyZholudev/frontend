@@ -31,7 +31,7 @@
 
 <ng-template #userModal>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Добавить новую подписку</h4>
+    <h4 class="modal-title pull-left">Биллинг аккаунты полльзователя</h4>
     <button type="button" class="close pull-right"
             aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
@@ -56,7 +56,7 @@
 
     <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2 mb-3"
             [disabled]="billingAccountService.isSelectedBAIdUndefined()">
-      {{billingAccountService.selectedBillingAccount.status ? "Блокировать" : "Активировать"}}
+      {{billingAccountService.selectedBillingAccount.active ? "Блокировать" : "Активировать"}}
     </button>
   </div>
 </ng-template>

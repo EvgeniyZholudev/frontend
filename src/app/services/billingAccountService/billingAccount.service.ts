@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {BillingAccount} from "../../model/billing-account";
+import {BillingAccount} from "../../modules/models/billing-account";
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +45,6 @@ export class BillingAccountService {
   }
 
   public getSelectedBAStatus(): string {
-    return this.selectedBillingAccount.status ? "Активно" : "Заблокировано"
+    return this.selectedBillingAccount.active ? "Активно" : "Заблокировано"
   }
 }

@@ -1,8 +1,8 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {UserService} from '../service/userService/user.service';
-import {User} from '../model/user';
-import {ModalService} from "../service/modalService/modal.service";
-import {BillingAccountService} from "../service/billingAccountService/billingAccount.service";
+import {UserService} from '../../services/userService/user.service';
+import {User} from '../models/user';
+import {ModalService} from "../../services/modalService/modal.service";
+import {BillingAccountService} from "../../services/billingAccountService/billingAccount.service";
 
 @Component({
   selector: 'app-user',

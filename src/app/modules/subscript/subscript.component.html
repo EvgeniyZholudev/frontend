@@ -49,7 +49,7 @@
     <p></p>
 
     <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2 mb-3"
-            [disabled]="billingAccountService.isSelectedBAIdUndefined() || !billingAccountService.selectedBillingAccount.status">
+            [disabled]="billingAccountService.isSelectedBAIdUndefined() || !billingAccountService.selectedBillingAccount.active">
       Добавить подписку в выбранный
       аккаунт
     </button>

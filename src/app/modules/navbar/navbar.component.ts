@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalService} from "../service/modalService/modal.service";
-import {AuthorizationService} from "../service/authorizationService/authorization.service";
-import {LocalizationService} from "../service/localizationService/localization.service";
+import {ModalService} from "../../services/modalService/modal.service";
+import {AuthorizationService} from "../../services/authorizationService/authorization.service";
+import {LocalizationService} from "../../services/localizationService/localization.service";
+
 
 @Component({
   selector: 'app-navbar',

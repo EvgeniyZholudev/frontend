@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from './model/user';
-import {AuthorizationService} from './service/authorizationService/authorization.service';
-import {LocalizationService} from "./service/localizationService/localization.service";
+import {User} from './modules/models/user';
+import {AuthorizationService} from './services/authorizationService/authorization.service';
+import {LocalizationService} from "./services/localizationService/localization.service";
 
 
 @Component({

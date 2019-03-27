@@ -26,21 +26,21 @@
           "description":"Описание",
           "pricePerDay":20
         }],
-        "status": false
+        "active": false
       },
       {
         "id": 5,
         "name": "ikjhmng",
         "balance": 100,
         "subscripts": [],
-        "status": true
+        "active": true
       },
       {
         "id": 5,
         "name": "asdcvdbfngm",
         "balance": 100,
         "subscripts": [],
-        "status": true
+        "active": true
       }
     ]
   },
@@ -57,21 +57,21 @@
         "balance": 100,
         "subscripts": [
         ],
-        "status": true
+        "active": true
       },
       {
         "id": 5,
         "name": "ikjhmng",
         "balance": 100,
         "subscripts": [],
-        "status": true
+        "active": true
       },
       {
         "id": 5,
         "name": "asdcvdbfngm",
         "balance": 100,
         "subscripts": [],
-        "status": true
+        "active": true
       }
     ]
   }

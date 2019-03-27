@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Subscript} from "../model/subscript";
-import {ModalService} from "../service/modalService/modal.service";
-import {SubscriptService} from "../service/subscriptService/subscript.service";
+import {Subscript} from "../../models/subscript";
+import {ModalService} from "../../../services/modalService/modal.service";
+import {SubscriptService} from "../../../services/subscriptService/subscript.service";
 
 @Component({
   selector: 'app-add-subscript',
