@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Подписки выбранного аккаунта</h4>
+  <button type="button" class="close pull-right"
+          aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group justify-content-center">
+    <table class="table table-hover border-bottom">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">ПОДПИСКА</th>
+        <th scope="col">ОПИСАНИЕ</th>
+        <th scope="col">ЦЕНА</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let subscript of billingAccountService.selectedBillingAccount.subscripts">
+        <td scope="row">{{subscript.name}}</td>
+        <td>{{subscript.description}}</td>
+        <td>{{subscript.pricePerDay}} RUB/д.</td>
+        <td>
+          <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2"
+                  [disabled]="!billingAccountService.selectedBillingAccount.status">Отписаться
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h6>Плата за день: {{billingAccountService.countPricePerDay(billingAccountService.selectedBillingAccount)}}</h6>
+  </div>
+</div>

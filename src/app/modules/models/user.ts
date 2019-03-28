@@ -8,6 +8,7 @@ export class User {
   email: string;
   role: string;
   billingAccounts: BillingAccount[];
+  imagePath: string;
 
   static cloneUser(user: User): User {
     const clonedUser: User = new User();
@@ -17,6 +18,7 @@ export class User {
     clonedUser.email = user.email;
     clonedUser.role = user.role;
     clonedUser.billingAccounts = user.billingAccounts;
+    clonedUser.imagePath = user.imagePath;
     return clonedUser;
   }
 }

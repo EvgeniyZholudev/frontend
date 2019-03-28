@@ -11,7 +11,7 @@ import {ModalService} from "../../services/modalService/modal.service";
 })
 export class BillingAccountComponent implements OnInit {
 
-  public inputSum: number;
+
   constructor(public authService: AuthorizationService, public billingAccountService: BillingAccountService,
               public modalService: ModalService) { }
 
@@ -21,12 +21,6 @@ export class BillingAccountComponent implements OnInit {
   public openModal(template: TemplateRef<any>, billingAccount: BillingAccount){
     this.modalService.openModal(template);
     this.billingAccountService.selectedBillingAccount = BillingAccount.cloneBillingAccount(billingAccount);
-  }
-
-  public closeModal(){
-    this.modalService.closeModal();
-    this.billingAccountService.clearSelectedBillingAccount();
-    this.inputSum = 0;
   }
 
 }

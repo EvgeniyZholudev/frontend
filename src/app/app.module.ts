@@ -14,20 +14,30 @@ import {UserComponent} from './modules/user/user.component';
 import {AuthorizationComponent} from './modules/navbar/authorization/authorization.component';
 import {NavbarComponent} from './modules/navbar/navbar.component';
 import {RouterModule, Routes} from '@angular/router';
-import { JumbotronComponent } from './modules/jumbotron/jumbotron.component';
-import { ProfileComponent } from './modules/profile/profile.component';
+import {JumbotronComponent} from './modules/jumbotron/jumbotron.component';
+import {ProfileComponent} from './modules/profile/profile.component';
 import {PaginationModule, TabsModule} from 'ngx-bootstrap';
-import { BillingAccountComponent } from './modules/billing-account/billing-account.component';
-import { RegistrationComponent } from './modules/navbar/registration/registration.component';
-import { AddSubscriptComponent } from './modules/profile/add-subscript/add-subscript.component';
+import {BillingAccountComponent} from './modules/billingAccount/billing-account.component';
+import {RegistrationComponent} from './modules/navbar/registration/registration.component';
+import {AddSubscriptComponent} from './modules/profile/add-subscript/add-subscript.component';
+import {JumbotronPageComponent} from "./modules/layout/components/jumbotronPage/jumbotron-page.component";
+import {SubscriptPageComponent} from "./modules/layout/components/subscriptPage/subscript-page.component";
+import {BillingAccountPageComponent} from "./modules/layout/components/billingAccountPage/billing-account-page.component";
+import {UserPageComponent} from "./modules/layout/components/userPage/user-page.component";
+import {ProfilePageComponent} from "./modules/layout/components/profilePage/profile-page.component";
+import {ToSubscriptComponent} from "./modules/subscript/components/toSubscript/to-subscript.component";
+import {EditSubscriptComponent} from "./modules/subscript/components/editSubscript/edit-subscript.component";
+import {SubscriptsTableComponent} from "./modules/billingAccount/components/subscriptsTable/subscripts-table.component";
+import {ReplenishBalanceComponent} from "./modules/billingAccount/components/replenishBalance/replenish-balance.component";
+import {UsersBillingAccountsComponent} from "./modules/user/components/usersBillingAccounts/users-billing-accounts.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'jumbotron', pathMatch: 'full'},
-  {path: 'jumbotron', component: JumbotronComponent},
-  {path: 'subscripts', component: SubscriptComponent},
-  {path: 'users', component: UserComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'billing-accounts', component: BillingAccountComponent}
+  {path: 'jumbotron', component: JumbotronPageComponent},
+  {path: 'subscripts', component: SubscriptPageComponent},
+  {path: 'users', component: UserPageComponent},
+  {path: 'profile', component: ProfilePageComponent},
+  {path: 'billing-accounts', component: BillingAccountPageComponent}
 ];
 
 @NgModule({
@@ -41,7 +51,17 @@ const routes: Routes = [
     ProfileComponent,
     BillingAccountComponent,
     RegistrationComponent,
-    AddSubscriptComponent
+    AddSubscriptComponent,
+    JumbotronPageComponent,
+    SubscriptPageComponent,
+    BillingAccountPageComponent,
+    UserPageComponent,
+    ProfilePageComponent,
+    ToSubscriptComponent,
+    EditSubscriptComponent,
+    SubscriptsTableComponent,
+    ReplenishBalanceComponent,
+    UsersBillingAccountsComponent
   ],
 
   exports: [RouterModule],

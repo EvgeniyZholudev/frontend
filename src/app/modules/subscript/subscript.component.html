@@ -24,77 +24,11 @@
 </div>
 
 <ng-template #toSubscript>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Добавить новую подписку</h4>
-    <button type="button" class="close pull-right"
-            aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="form-group justify-content-center">
-      <label for="exampleFormControlSelect1">Выберите billing account, на который хотите добавить подписку:</label>
-      <select class="form-control w-25" id="exampleFormControlSelect1"
-              [(ngModel)]="billingAccountService.selectedBillingAccount">
-        <option *ngFor="let billingAccount of authService.authorizedUser.billingAccounts"
-                [ngValue]="billingAccount">{{billingAccount.name}}</option>
-      </select>
-    </div>
-    <h6>Имя аккаунта: {{billingAccountService.selectedBillingAccount.name}}</h6>
-    <h6>Баланс: {{billingAccountService.selectedBillingAccount.balance}}</h6>
-    <h6>Статус: {{billingAccountService.getSelectedBAStatus()}}</h6>
-    <h6>Всего подписок на аккаунте: {{billingAccountService.getSelectedBASubscriptsLength()}}</h6>
-    <h6>Плата за день: {{billingAccountService.countPricePerDay(billingAccountService.selectedBillingAccount)}}</h6>
-
-    <p></p>
-
-    <button type="button" class="btn btn-primary d-none d-lg-inline-block mt-2 mb-3"
-            [disabled]="billingAccountService.isSelectedBAIdUndefined() || !billingAccountService.selectedBillingAccount.active">
-      Добавить подписку в выбранный
-      аккаунт
-    </button>
-  </div>
+  <app-to-subscript></app-to-subscript>
 </ng-template>
 
 <ng-template #editSubscript>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Добавить новую подписку</h4>
-    <button type="button" class="close pull-right"
-            aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="form-group justify-content-center">
-      <label for="form1" class="mt-1">Название подписки:</label>
-      <input type="text" id="form1" class="form-control mt-1" name="name"
-             [(ngModel)]="subscriptService.selectedSubscript.name"
-             #name="ngModel" required>
-      <div [hidden]="name.untouched || name.valid" class="alert alert-danger">
-        Вы ввели неверное название
-      </div>
-      <label for="form2" class="mt-1">Описание:</label>
-      <textarea class="form-control mt-1" id="form2" rows="3" name="description"
-                [(ngModel)]="subscriptService.selectedSubscript.description"
-                #description="ngModel" required></textarea>
-      <div [hidden]="description.untouched || description.valid" class="alert alert-danger">
-        Вы ввели неверное описание
-      </div>
-      <label for="form3" class="mt-1">Плата за день:</label>
-      <input type="number" id="form3" class="form-control mt-1" name="pricePerDay"
-             [(ngModel)]="subscriptService.selectedSubscript.pricePerDay"
-             #pricePerDay="ngModel" required pattern="[1-9]{1}[0-9]{0,6}">
-      <div [hidden]="pricePerDay.untouched || pricePerDay.valid" class="alert alert-danger">
-        Вы ввели неверное число или вовсе не число
-      </div>
-      <label for="form4" class="mt-1">Изображение</label>
-      <input type="file" id="form4" name="file" class="form-control mt-1"/>
-      <button class="btn btn-primary mt-3" [disabled]="name.invalid || description.invalid || pricePerDay.invalid">
-        Добавить
-      </button>
-    </div>
-  </div>
-
+<app-edit-subscript></app-edit-subscript>
 </ng-template>
 
 

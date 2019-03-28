@@ -4,6 +4,7 @@ export class Subscript {
   description: string;
   pricePerDay: number;
   period: number;
+  imagePath: string;
 
 
 static cloneSubscript(subscript: Subscript): Subscript {
@@ -13,6 +14,7 @@ static cloneSubscript(subscript: Subscript): Subscript {
   clonedSubscript.description = subscript.description;
   clonedSubscript.pricePerDay = subscript.pricePerDay;
   clonedSubscript.period = subscript.period;
+  clonedSubscript.imagePath = subscript.imagePath;
   return clonedSubscript;
 }
 

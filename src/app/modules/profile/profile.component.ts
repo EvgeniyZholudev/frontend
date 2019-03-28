@@ -4,7 +4,7 @@ import {AuthorizationService} from "../../services/authorizationService/authoriz
 import {ModalService} from "../../services/modalService/modal.service";
 
 @Component({
-  selector: 'app-authorized-user',
+  selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
